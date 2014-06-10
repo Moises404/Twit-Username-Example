@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Sad Tweets</title>
+</head>
+<body>
+	<h1>Sad Tweets</h1>
+	<p>Hello from RootController.index</p>
+
+	<hr>
+
+	<p>Input a username to show their sad tweets</p>
+
+	<form id="get-sad-tweets" method='GET'>
+		 <input id="username-input" name="username" type="text" placeholder="username">
+		 <input type="submit" value="Show sad Tweets!"/>
+	</form>
+
+	<!-- Javascript Libraries -->
+	<script src="/javascripts/jquery-2.1.1.min.js"></script>
+
+	<!-- initialize Tweets Javascript to make api call -->
+	<script src="/javascripts/index.js"></script>
+	<script>
+		Tweets.init();
+	</script>
+</body>
+</html>
