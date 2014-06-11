@@ -9,10 +9,12 @@
 			alert('Initialized get sad Tweets handler!');
 			$( "#get-sad-tweets" ).submit(function( event ) {
 				methods.getSadTweets();
+				event.preventDefault();
 			});
 		},
 		getSadTweets: function () {
-			username: $('#username-input').val();
+			username = $('#username-input').val();
+			console.log('username: ' + username);
 			// AJAX CALL
 			var params = {
 				url: 'http://localhost:3000/sadtweets/' + username,
@@ -21,7 +23,9 @@
 					username: username
 				},
 				success: function (data) {
-					console.log(data);
+					console.log('data: ' + data);
+					$('.sadTweets').empty();
+					$('.sadTweets').append('Here are the sad tweets for user ' + '<b>' + data.id + '</b>')
 				} // end of sucess
 			}; // end of params
 			$.ajax(params);
