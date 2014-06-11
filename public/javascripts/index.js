@@ -12,12 +12,13 @@
 			});
 		},
 		getSadTweets: function () {
+			username: $('#username-input').val();
 			// AJAX CALL
 			var params = {
 				url: 'http://localhost:3000/sadtweets/' + username,
 				dataType: 'json',
 				data: {
-					username: $('#username-input').val()
+					username: username
 				},
 				success: function (data) {
 					console.log(data);
