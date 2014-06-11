@@ -3,18 +3,15 @@
 	var methods = {
 		init: function () {
 			alert('Initialized init function!');
-			methods.getSadTweets();
+			methods.initSubmitHandler();
 		},
-		getSadTweets: function () {
+		initSubmitHandler: function () {
 			alert('Initialized get sad Tweets handler!');
 			$( "#get-sad-tweets" ).submit(function( event ) {
-				// get value from input form
-				username = $('#username-input').val();
-				alert( 'Handler for .submit() called. ' + 'Your value is ' + username );
-				event.preventDefault();
-				//return false;
+				methods.getSadTweets();
 			});
-
+		},
+		getSadTweets: function () {
 			// AJAX CALL
 			var params = {
 				url: 'http://localhost:3000/sadtweets/' + username,
@@ -29,6 +26,14 @@
 			$.ajax(params);
 		}
 	};
-
 	window.Tweets = methods;
 })();
+
+
+
+			// 	// get value from input form
+			// 	username = $('#username-input').val();
+			// 	alert( 'Handler for .submit() called. ' + 'Your value is ' + username );
+			// 	event.preventDefault();
+			// 	//return false;
+			// });
